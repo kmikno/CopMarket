@@ -6,11 +6,10 @@
  *
  * @returns {} json to the client
  */
-const getPosts = (req, res, next) => {
-  console.log(req.url);
-  res.json({ message: 'hi from Post forum' });
+const getVendor = (req, res, next) => {
+  res.json({ message: 'hi from Vendor Store' });
 };
 
 module.exports = {
-  getPosts,
+  getVendor,
 };

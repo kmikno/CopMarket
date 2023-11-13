@@ -1,0 +1,48 @@
+section.marcas{
+    position: relative;
+    top: var(--desplazar-top);
+}
+
+.marcas__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.encabezado {
+  color: #2b4254;
+  margin: 0;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.encabezado > h2, p {
+    margin: 0;
+}
+
+.encabezado > h2 {
+    margin: 10px;
+    font-size: 40px;
+}
+
+.imagenes {
+  position: relative;
+  height: 100px;
+  gap: 10px;
+  /* height: 50vh; */
+  /* width: 80vw; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Si quieren enlazar a diferentes Marcas usar El anchor tag */
+/*  De lo contrario eliminarlo de las referencias */
+.imagenes > a > img {
+  height: auto;
+  width: auto;
+  max-width: 100px;
+  max-height: 400px;
+}

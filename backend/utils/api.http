@@ -1,0 +1,8 @@
+### Entry point of the API
+GET http://localhost:1234
+
+### To Scrap products
+POST http://localhost:1234/scrap
+
+### Get vendor products
+GET http://localhost:1234/vendor
