@@ -18,7 +18,7 @@ const { extname, join } = require('node:path');
  */
 exports.cacheFile = async (name, query) => {
   const { storagePath } = await import('../utils/rootDir.mjs');
-  console.log({ name, query });
+
   try {
     await fs.access(storagePath);
   } catch (error) {

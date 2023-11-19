@@ -9,10 +9,18 @@ const GridProducts = (props) => {
           <div className="m-6 text-center sm:mx-auto sm:my-6 sm:max-w-2xl">
             Última actualización: {lastUpdate}
           </div>
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] my-6 gap-3 grid-flow-dense place-content-center max-w-7xl sm:mx-6 sm:gap-4 xl:mx-auto">
-            {products.map((p) => (
-              <CardProduct key={p.title + p.price} product={p} vendor={vendor.toUpperCase()} />
-            ))}
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] my-6 mx-2 gap-3 grid-flow-dense place-content-center max-w-7xl sm:mx-6 sm:gap-6 xl:mx-auto">
+            {products.map((p) => {
+              if (p.price) {
+                return (
+                  <CardProduct
+                    key={p.title + p.price}
+                    product={p}
+                    vendor={vendor.toUpperCase()}
+                  />
+                );
+              }
+            })}
           </div>
         </>
       ) : (

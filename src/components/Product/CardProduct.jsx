@@ -1,15 +1,19 @@
+import { useNavigate } from 'react-router-dom';
+
 const CardProduct = (props) => {
   const { product, vendor } = props;
+  const navigate = useNavigate();
   /**
    *
    * @param {React.MouseEvent} evt click event register
    */
   const handleCompareBtn = (evt) => {
+    navigate('/compare');
     console.log(evt.currentTarget.parentElement);
   };
 
   return (
-    <article className="flex justify-center items-center flex-col gap-2 p-4 shadow-md rounded-lg max-h-96 sm:min-w-full sm:mx-auto sm:max-w-xs sm:gap-4 hover:shadow-xl hover:shadow-indigo-400/20">
+    <article className="flex justify-center border border-solid border-indigo-500 items-center flex-col gap-2 p-4 shadow-md rounded-lg max-h-96 sm:min-w-full sm:mx-auto sm:max-w-xs sm:gap-4 hover:shadow-xl hover:shadow-indigo-400/20">
       <div className="flex flex-col items-center">
         <picture className="aspect-square w-48 sm:h-auto">
           <img
@@ -25,7 +29,7 @@ const CardProduct = (props) => {
         <p className="text-indigo-500 font-semibold">{vendor}</p>
         <p
           title={product.title}
-          className="text-md text-main-800 text-ellipsis overflow-hidden text-md max-h-12 relative "
+          className="text-md text-main-800 truncate text-md sm:w-[200px] h-12"
         >
           {product.title}
         </p>

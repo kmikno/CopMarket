@@ -1,31 +1,37 @@
 import React from 'react';
 
-const CompareProduct = ({ products, vendor }) => {
+const CompareProduct = ({ product: { title, price, img, url }, update }) => {
+  if (typeof update === 'number') {
+    update = new Date(update).toLocaleDateString('es-CO', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  }
   return (
-    <div className="flex justify-center items-center  flex-col sm:flex-row sm:gap-2  sm:max-w-2xl">
+    <article className="flex justify-center items-center flex-row sm:gap-2 sm:max-w-lg">
       <div className="flex flex-col items-center">
         <figure className="w-48 sm:h-auto">
           <img
             className="rounded-lg shadow-md sm:w-60"
-            src={products[0].img}
+            src={img}
             alt="product img"
             srcSet=""
           />
         </figure>
         <div className="p-2 text-center order-[-1] sm:order-1">
           <p className="text-sm">Ultima actualización</p>
-          <p className="text-xs">2023-11-07 12:30pm</p>
+          <p className="text-xs">{update}</p>
         </div>
       </div>
 
       <div className="flex flex-col gap-2 m-2 w-2/3 sm:w-auto">
-        <p>{vendor}</p>
-        <p className="text-md font-semibold text-main-800 sm:text-2xl">{products[0].title}</p>
-        <p className="text-sm font-bold text-white bg-main-800 rounded-lg px-2 py-1 w-max sm:text-lg">
-          {products[0].price}
+        <p className="text-indigo-500 font-semibold">{}</p>
+        <p className="text-md text-main-800 text-md overflow-hidden text-ellipsis">{title}</p>
+        <p className="text-lg font-bold text-white bg-main-800 rounded-lg px-2 py-1 w-max">
+          {price}
         </p>
       </div>
-    </div>
+    </article>
   );
 };
 

@@ -6,6 +6,7 @@ import cart from '../assets/images/shoppingCart.png';
 const Store = () => {
   const { store } = useParams();
   const response = useLoaderData();
+
   if (typeof response?.lastUpdate === 'number') {
     response.lastUpdate = new Date(response.lastUpdate).toLocaleDateString('es-CO', {
       hour: '2-digit',

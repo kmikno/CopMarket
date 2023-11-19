@@ -12,6 +12,7 @@ const supportedVendors = {
     getProduct: async function (prodQuery) {
       const { ExtractVaquita } = await import('../services/ExtractVaquita.mjs');
       const products = await ExtractVaquita(prodQuery);
+      // console.log(products);
       return products;
     }
   },
@@ -47,7 +48,6 @@ const getVendorProduct = async (req, res, next) => {
   }
 
   const hasCache = await cacheFile(name, query);
-  console.log(hasCache);
   if (hasCache) return res.json(hasCache);
 
   const returnProducts = await supportedVendors[name].getProduct(query);

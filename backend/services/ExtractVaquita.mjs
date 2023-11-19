@@ -17,8 +17,8 @@ const shop = {
     const $productSelector = 'li.product-item .product-item-info';
     const $imgProductSelector = 'img.product-image-photo';
 
-    await page.waitForSelector($imgProductSelector);
-    await page.waitForSelector($productSelector);
+    // await page.waitForSelector($imgProductSelector);
+    // await page.waitForSelector($productSelector);
     // await page.waitForTimeout(1000);
     const getCategory = (await page.textContent('h1.page-title'))?.trim();
 
@@ -83,8 +83,6 @@ export const ExtractVaquita = async (query = '') => {
   );
 
   /* ----------------------------------- */
-  const initTime = performance.now();
-
   const page = await context.newPage();
 
   // Structure for products in Shop
@@ -105,13 +103,9 @@ export const ExtractVaquita = async (query = '') => {
     throw error;
   }
 
-  console.log('\x1b[32mExtraction Completed\x1b[0m');
+  console.log('\x1b[33mExtraction Completed\x1b[0m');
 
   await context.close();
   await browser.close();
-  const endTime = performance.now();
-  let sec = (endTime - initTime) / 1000;
-  sec = sec.toFixed(2);
-  console.log(`\x1b[36mTime lapse -> ${sec} seconds`);
   return result;
 };

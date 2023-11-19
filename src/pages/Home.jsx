@@ -3,10 +3,10 @@ import { stores } from '../utils/constants';
 const Home = () => {
   return (
     <>
-      <section className="mx-6 mt-4">
+      <section className="sm:mx-6 my-10">
         <div className="flex flex-col justify-center items-center gap-4 sm:gap-12">
-          <div className="flex flex-col justify-center items-center h-64 m-0 text-center text-main-800">
-            <h2 className="font-Montserrat font-bold text-4xl m-5">Ahorrar es posible</h2>
+          <div className="flex flex-col justify-center items-center  h-auto m-0 text-center text-main-800">
+            <h1 className="font-Montserrat font-bold text-4xl m-5">Ahorrar es posible</h1>
             <p className="max-w-md">
               Empieza seleccionando uno de los mercado pradeños para buscar y comparar
               productos

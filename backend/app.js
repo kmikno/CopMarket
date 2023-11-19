@@ -1,5 +1,4 @@
 const express = require('express');
-const FeedRoute = require('./routes/feed');
 const VendorRoute = require('./routes/vendor');
 
 const PORT = process.env.PORT ?? '1234';
@@ -17,8 +16,6 @@ app.use(function (req, res, next) {
 
 // app.use(ScrapRoute); To Scrap products based on the queryParams send.
 app.use('/vendor', VendorRoute);
-
-app.use('/feed', FeedRoute);
 
 app.use('/', (req, res, next) => {
   // console.log({ path: req.params, url: req.url, query: req.query });
