@@ -1,31 +1,44 @@
-import Compare from './components/Compare';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Layout from './pages/Layout';
-import NotFound from './pages/NotFound';
-import LayoutNavigation from './pages/Layout/Navigation';
-import Store from './pages/Store';
-import GridProducts from './pages/Layout/GridProducts';
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements
+} from 'react-router-dom';
 
-const requested = async ({ params, request }) => {
-  console.log({ params, request });
-};
+import Home from './pages/Home';
+import Store from './pages/Store';
+import NotFound from './pages/NotFound';
+import Compare from './components/Compare';
+import Layout from './components/Layout/Layout';
+import About from './pages/sobre-nosotros';
+
+import { loadVendor } from './services/loadVendor';
 
 const App = () => {
-  return (
-    <div className="relative h-[100dvh] bg-slate-300/10 overflow-x-hidden">
-      <Router>
-        <LayoutNavigation />
-        <Routes>
-          <Route path="/" element={<Layout />} />
-          <Route path="/compare" element={<Compare />} />
-          <Route path="/search/:store" element={<Store />}>
-            <Route path="products" action={requested} element={<GridProducts />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
-    </div>
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/search/:store"
+          loader={loadVendor}
+          element={<Store />}
+          errorElement={
+            <div className="mx-6">
+              La petición no devolvió lo que esperaba, verificar si el servidor esta activo
+            </div>
+          }
+        >
+          {/* <Route path="products" element={<GridProducts />} /> */}
+        </Route>
+        <Route path="about" element={<About />} />
+        <Route path="compare" element={<Compare />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    )
   );
+
+  return <RouterProvider router={router} />;
 };
 
 export default App;

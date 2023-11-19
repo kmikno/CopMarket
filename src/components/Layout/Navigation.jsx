@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const LayoutNavigation = () => {
   return (
-    <header className="col-span-full flex justify-between text-main-800 px-6 items-center mb-2 max-w-7xl md:mx-auto">
-      <NavLink to="/" className="font-bold text-2xl">
+    <header className="col-span-full w-full flex justify-between text-main-800 px-6 items-center mb-2 max-w-7xl md:mx-auto">
+      <NavLink to="/" className="font-bold text-xl sm:text-3xl">
         <p className="text-center rounded-lg bg-transparent">CopMarket</p>
       </NavLink>
       <nav className="">

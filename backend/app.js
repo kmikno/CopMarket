@@ -11,15 +11,12 @@ app.use(express.json());
 // Register the route
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  );
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
 // app.use(ScrapRoute); To Scrap products based on the queryParams send.
-app.use(VendorRoute);
+app.use('/vendor', VendorRoute);
 
 app.use('/feed', FeedRoute);
 
